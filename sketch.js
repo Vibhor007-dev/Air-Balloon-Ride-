@@ -31,18 +31,22 @@ function draw() {
   if(keyDown(LEFT_ARROW)){
     balloon.addAnimation("hotAirBalloon",balloonImage2);
     //write code to move air balloon in left direction
-    balloon.velocityX=-5;
+    //balloon.velocityX=-5;
+    updateHeight(-10,0);
   }
   else if(keyDown(RIGHT_ARROW)){
     balloon.addAnimation("hotAirBalloon",balloonImage2);
     //write code to move air balloon in right direction
-    balloon.velocityX= 5;
+    //balloon.velocityX= 5;
+    updateHeight(10,0);
   }
   else if(keyDown(UP_ARROW)){
     balloon.addAnimation("hotAirBalloon",balloonImage2);
     //write code to move air balloon in up direction
+   
+    
     updateHeight(0, -10);
-    balloon.scale=balloon.scale-0.001;
+    balloon.velocityY=-5;
   }
   else if(keyDown(DOWN_ARROW)){
     balloon.addAnimation("hotAirBalloon",balloonImage2);
@@ -63,7 +67,7 @@ function updateHeight(x,y){
     y:height.y+y,
   })
 }
-function readHeight(){
+function readHeight(data){
   height = data.val();
   balloon.x=height.x;
   balloon.y=height.y;
